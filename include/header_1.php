@@ -438,68 +438,6 @@
             }
         }
 
-        /* Content section */
-        .content {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .content h2 {
-            color: #113e5c;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .content p {
-            color: #666;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto 20px;
-            text-align: justify;
-        }
-        
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .feature-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 25px;
-            width: 280px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-card i {
-            font-size: 2.5rem;
-            color: #f7931e;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card h3 {
-            color: #113e5c;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-        
-        .feature-card p {
-            text-align: center;
-            font-size: 0.95rem;
-        }
-        
-        
     </style>
 </head>
 <body>
@@ -555,29 +493,7 @@
         </div>
     </nav>
 
-    <div class="content">
-        <h2>बालसंगोपन योजना पोर्टलमध्ये आपले स्वागत आहे</h2>
-        <p>ही संकेतस्थळ यवतमाळ जिल्ह्यातील बालसंगोपन योजनेसंदर्भातील सर्व माहिती, सेवा आणि अर्ज प्रक्रिया उपलब्ध करून देते. बालसंगोपन योजना ही राज्य शासनाची महत्त्वाची कल्याणकारी योजना आहे ज्याद्वारे आर्थिकदृष्ट्या दुर्बल घरातील मुलांना शैक्षणिक संधी उपलब्ध करून दिल्या जातात.</p>
-        <p>योजनेअंतर्गत, पात्र मुलांना शालेय शिक्षणासाठी आर्थिक सहाय्य, पाठ्यपुस्तके, वर्दी, शैक्षणिक साहित्य इत्यादी सुविधा पुरवल्या जातात. या पोर्टलद्वारे पालक, शिक्षक आणि प्रशासकांना योजनेचा प्रभावीपणे वापर करण्यास मदत होईल.</p>
-        
-        <div class="features">
-            <div class="feature-card">
-                <i class="fas fa-file-alt"></i>
-                <h3>ऑनलाईन अर्ज</h3>
-                <p>घरबसल्या बालसंगोपन योजनेसाठी अर्ज सबमिट करा. प्रक्रिया सोपी आणि वेगवान.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-search"></i>
-                <h3>अर्जाची स्थिती</h3>
-                <p>आपल्या अर्जाची सद्यस्थिती तपासा. मंजुरी आणि निधी वितरणाची माहिती मिळवा.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-book"></i>
-                <h3>मार्गदर्शन</h3>
-                <p>योजनेसंबंधी संपूर्ण माहिती, पात्रता निकष आणि आवश्यक कागदपत्रांची माहिती.</p>
-            </div>
-        </div>
-    </div>
+    
     
 
     <script>
@@ -612,6 +528,6 @@
             }
         });
     </script>
-<?php include 'footer_1.php'; ?>
+
 </body>
 </html>
