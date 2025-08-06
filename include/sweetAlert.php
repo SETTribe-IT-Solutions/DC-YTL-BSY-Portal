@@ -1,0 +1,219 @@
+
+<html>
+    <head>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+         <!-- <link href="https://sweetalert2.github.io/styles/bootstrap4-buttons.css" rel="stylesheet"/>
+          -->
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+<body>
+    
+</body>
+
+      
+      <script>
+         
+//Function for sweetalert
+function sweetalert_w(usertitle,pagename)
+{
+    Swal.fire({
+         title: usertitle,
+        icon: 'warning',
+        confirmButtonText: 'Ok'
+         }).then((result) => {
+  if (result.isConfirmed) {
+   window.location = pagename;
+  }else{
+  window.location = pagename;
+  }
+  })
+}
+
+function logoutFun(location) {
+        Swal.fire({
+            title: 'Are you sure want to logout?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = location;
+            }
+        })
+    }
+function deleteFun(location) {
+        Swal.fire({
+            title: 'Are you sure want to delete?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = location;
+            }
+        })
+    }
+   function callFun(phoneNumber) {
+    Swal.fire({
+        title: 'Are you sure you want to call?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'tel:' + phoneNumber;
+        }
+    })
+}
+ function callFun1(phoneNumber) {
+    Swal.fire({
+        title: 'Are you sure you want to call?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'tel:' + phoneNumber;
+        }
+    })
+}
+
+          
+          function warnFun(location) {
+        Swal.fire({
+            title: 'Are you sure want to Reject?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location;
+            }
+        })
+    }
+
+
+function sweetalert_sw(usertitle)
+{
+    Swal.fire({
+         title: usertitle,
+        icon: 'warning',
+        confirmButtonText: 'Ok'
+         }).then((result) => {
+  if (result.isConfirmed) {
+   window.location = "#";
+  }else{
+  window.location = "#";
+  }
+  })
+}
+          
+//Function for sweetalert
+function sweetalert(usertitle,pagename)
+{
+    Swal.fire({
+         title: usertitle,
+        icon: 'success',
+        confirmButtonText: 'Ok'
+         }).then((result) => {
+  if (result.isConfirmed) {
+   window.location = pagename;
+  }else{
+  window.location = pagename;
+  }
+  })
+}
+
+//Out of office
+function erroralertsorry(usertitle,pagename,reason)
+{
+    Swal.fire({
+        title: usertitle,
+        icon: 'error',
+        text:reason,
+        confirmButtonText: 'Ok'
+         }).then((result) => {
+  if(result.isConfirmed){
+      window.location = pagename;
+  }else{
+      window.location = pagename;
+  }
+  })
+}
+
+//Out of office Forced
+function erroralertsorry_force(usertitle,pagename,forced_link,reason)
+{
+    Swal.fire({
+         title: usertitle,
+        icon: 'error',
+        text:reason,
+        confirmButtonText: 'Ok',
+        //showDenyButton : true,
+        //denyButtonText: 'Do Force',
+        
+         }).then((result) => {
+  if(result.isConfirmed){
+      window.location = pagename;
+  }else if(result.isDenied){
+      window.location = forced_link;
+  }else{
+      window.location = pagename;
+  }
+  })
+}
+
+
+//Function for error
+function erroralert(usertitle,pagename)
+{
+    Swal.fire({
+         title: usertitle,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+         }).then((result) => {
+  if (result.isConfirmed) {
+   window.location = pagename;
+  }else{
+  window.location = pagename;
+  }
+  })
+}
+
+
+function toast(title,icon){
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: icon,
+  title: title
+})
+}
+
+</script>
+   
+<body>
+</body>
+</html>
