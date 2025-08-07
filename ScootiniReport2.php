@@ -25,7 +25,7 @@
 <!-- Login Section -->
 <div class="card-body">
                         
-                        <h1 style="color:red"><b>स्क्रूटिनी (Level 1)</b></h1>
+                        <h1 style="color:red"><b>स्क्रूटिनी (Level 2)</b></h1>
             <div class="table-responsive"> <!-- Responsive wrapper -->
         <table class="table table-bordered table-hover mb-0">
             <thead class="thead-dark">
@@ -60,7 +60,7 @@
               <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
       <?php
       $sr = 1;
-      $query = mysqli_query($conn, "SELECT * FROM balsangopan_form") or die($conn->error);
+$query = mysqli_query($conn, "SELECT * FROM balsangopan_form WHERE eskuritiStatus1 = 'approve'") or die($conn->error);
       while ($fetch = mysqli_fetch_assoc($query)) {
 
         ?>
