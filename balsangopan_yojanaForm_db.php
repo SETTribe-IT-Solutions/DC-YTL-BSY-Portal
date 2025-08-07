@@ -1,18 +1,15 @@
 <?php
 include('include/connection.php');
 include('include/sweetAlert.php');
-date_default_timezone_set('Asia/Kolkata'); // IST timezone
-
+date_default_timezone_set('Asia/Kolkata');
 
 if (isset($_POST['submit'])) {
+    // Text inputs
     $sangopankartyache_name = $_POST['sangopankartyache_name'];
     $labhartyanche_name = $_POST['labhartyanche_name'];
     $date_of_birth = $_POST['date_of_birth'];
     $age = $_POST['age'];
     $nationality = $_POST['nationality'];
-    $adhivas = $_POST['adhivas'];
-    $shikshan = $_POST['shikshan'];
-    $bussiness = $_POST['bussiness'];
     $utpanache_sadhan = $_POST['utpanache_sadhan'];
     $masik_utpann = $_POST['masik_utpann'];
     $bank_info = $_POST['bank_info'];
@@ -26,11 +23,21 @@ if (isset($_POST['submit'])) {
     $marrige_info = $_POST['marrige_info'];
     $child_info = $_POST['child_info'];
     $wife_count = $_POST['wife_count'];
-    $document = $_POST['document'];
 
-    // Optional: For tracking
-    $created_at = date('Y-m-d H:i:s');
+    // Image upload handling
+    $uploadDir = 'document/';
 
+    // Handle shikshan image
+    $shikshan = time() . '_' . basename($_FILES['shikshan']['name']);
+    $shikshan_path = $uploadDir . $shikshan;
+    move_uploaded_file($_FILES['shikshan']['tmp_name'], $shikshan_path);
+
+    // Handle document image
+    $document = time() . '_' . basename($_FILES['document']['name']);
+    $document_path = $uploadDir . $document;
+    move_uploaded_file($_FILES['document']['tmp_name'], $document_path);
+
+    // Save to DB
     $query = mysqli_query($conn, "INSERT INTO `balsangopan_form` (
         `sangopankartyache_name`,
         `labhartyanche_name`,
@@ -60,9 +67,9 @@ if (isset($_POST['submit'])) {
         '$date_of_birth',
         '$age',
         '$nationality',
-        '$adhivas',
+        '', -- adhivas
         '$shikshan',
-        '$bussiness',
+        '', -- bussiness
         '$utpanache_sadhan',
         '$masik_utpann',
         '$bank_info',
@@ -79,24 +86,10 @@ if (isset($_POST['submit'])) {
         '$document'
     )") or die($conn->error);
 
-
-
-// foreach ($_POST['fullName'] as $index => $fullName) {
-//     $fullName = trim($fullName);
-//     $role = trim($_POST['role'][$index]);
-//     $username = trim($username);
-//     $mobile_no = trim($_POST['mobile_no'][$index]);
-// $insert = mysqli_query($conn,"INSERT INTO `teamDetails`(`mobileNo`,`fullName`, `role`,`teamName`, `teamId`,`createdDate`) VALUES ('$mobile_no','$fullName','$role','$teamName','$teamId','$createdDate')") or die($conn->error);
-// }
-
-
-
-if($query){
-echo '<script>sweetalert("Form Submited Successfully!", "balsangopan_yojana_arz.php", "");</script>';
-} else{
-echo '<script>erroralertsorry("Form Not Submited Successfully!", "balsangopan_yojana_arz.php", "");</script>';
+    if ($query) {
+        echo '<script>sweetalert("Form Submitted Successfully!", "balsangopan_yojana_arz.php", "");</script>';
+    } else {
+        echo '<script>erroralertsorry("Form Not Submitted!", "balsangopan_yojana_arz.php", "");</script>';
+    }
 }
-
-}
-
 ?>

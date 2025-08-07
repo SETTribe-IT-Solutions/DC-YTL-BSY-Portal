@@ -58,7 +58,7 @@
                   <center><strong class="card-title" style="font-size:2rem;">बालसंगोपन योजना करीता अर्ज</strong></center>
                 </div>
                 <div class="card-body">
-                  <form class="needs-validation" action="balsangopan_yojanaForm_db.php" method="POST" novalidate>
+                  <form class="needs-validation" action="balsangopan_yojanaForm_db.php" method="POST" enctype="multipart/form-data" novalidate>
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="validationCustom3"><strong>संगोपनकर्त्याचे संपूर्ण नाव<b style="color:red;">*</b></strong></label>
