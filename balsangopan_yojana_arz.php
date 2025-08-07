@@ -52,7 +52,7 @@
       <main role="main" class="main-content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12"> 
               <div class="card shadow mb-4">
                 <div class="card-header">
                   <center><strong class="card-title" style="font-size:2rem;">बालसंगोपन योजना करीता अर्ज</strong></center>
@@ -62,107 +62,112 @@
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="validationCustom3"><strong>संगोपनकर्त्याचे संपूर्ण नाव<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="teamName" name="teamName" required>
+                        <input type="text" class="form-control" id="teamName" name="sangopankartyache_name" required>
                         <div class="invalid-feedback"> Please enter a Team Name</div>
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>लाभार्थ्यांचे संपूर्ण नाव<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="vechileNo" required>
+                        <input type="text" class="form-control" id="vechileNo" name="labhartyanche_name" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                       <div class="col-md-6 mb-3">
-                        <label for="validationCustom4"><strong>लाभार्थ्यांचे जन्म तारीख आणि वय<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <label for="validationCustom4"><strong>लाभार्थ्यांचे जन्म तारीख<b style="color:red;">*</b></strong></label>
+                        <input type="date" class="form-control" id="vechileNo" name="date_of_birth" required>
+                        <div class="invalid-feedback"> Please enter a Vechile No </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="validationCustom4"><strong>वय<b style="color:red;">*</b></strong></label>
+                        <input type="text" class="form-control" id="vechileNo" name="age" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>राष्ट्रीयत्व<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="nationality" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>अधिवास<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="adhivas" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>शिक्षण (बोनाफाईड प्रमाणपत्र)<b style="color:red;">*</b></strong></label>
-                        <input type="file" class="form-control" id="vechileNo" name="username" required>
+                        <input type="file" class="form-control" id="vechileNo" name="shikshan" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>व्यवसाय<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="bussiness" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>उत्पनाचे साधन<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="utpanache_sadhan" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>मासिक उत्पन्न<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="masik_utpann" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>बँक खात्याची तपशील<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="bank_info" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>बँकेचे नाव<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="bank_name" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>खाते क्रमांक<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="account_number" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>IFSC<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="ifsc_code" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>घरचा पत्ता<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="home_address" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>कायमचा पत्ता<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="address2" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>मोबाईल नंबर<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="mobile_number" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>कार्यलयाचा पत्ता<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="office_address" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>विवाह केव्हा झाला<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="marrige_info" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>झालेल्या बालकांची संख्या<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="child_info" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>ह्यात पत्नी संख्या - एक/दोन<b style="color:red;">*</b></strong></label>
-                        <input type="text" class="form-control" id="vechileNo" name="username" required>
+                        <input type="text" class="form-control" id="vechileNo" name="wife_count" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                        <div class="col-md-6 mb-3">
                         <label for="validationCustom4"><strong>एखादा मोठा दीर्घ कालीन आजार किंवा असाध्य आजार असल्यास वैघ्कीय प्रमाणपत्र सादर करावे<b style="color:red;">*</b></strong></label>
-                        <input type="file" class="form-control" id="vechileNo" name="username" required>
+                        <input type="file" class="form-control" id="vechileNo" name="document" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
                     </div> <!-- /.form-row -->
