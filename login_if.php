@@ -27,7 +27,7 @@
     }
 
     .login-image {
-      background: url('img/logo-ngo.png') no-repeat center center;
+      background: url('img/if_img.jpg') no-repeat center center;
       background-size:contain;
     }
 
@@ -96,7 +96,7 @@
 
   <!-- Right Side Form -->
   <div class="login-form">
-    <h4> DCPO कर्मचारी / NGO लॉगीन </h4>
+    <h4> परवीक्ष अधकारी लॉगन</h4>
     <form method="POST" action="login_db.php">
       <div class="mb-3">
         <label for="username" class="form-label" style="font-weight:bold;color: #113e5c;">यूजरनेम / मोबाईल नंबर</label>
