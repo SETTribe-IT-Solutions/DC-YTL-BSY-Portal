@@ -123,7 +123,7 @@ margin-left:-30%;
              
 
                      
-                      <form class="needs-validation" action="childDB.php" method="POST" novalidate>
+                      <form class="needs-validation" action="createUserDB.php" method="POST" novalidate>
                         <div class="form-row">
 
                         <?php
@@ -132,9 +132,9 @@ margin-left:-30%;
 
 if(isset($_REQUEST['edit'])) {
 
-  $registerId = $_REQUEST['edit'];
+  $id = $_REQUEST['id'];
  
-  $queryCheck = mysqli_query($conn,"select * from `childRegister` where id='$registerId'") or die($conn->error);
+  $queryCheck = mysqli_query($conn,"select * from `users` where id='$id'") or die($conn->error);
   $fetch = mysqli_fetch_assoc($queryCheck);
  
 }
@@ -145,7 +145,7 @@ if(isset($_REQUEST['edit'])) {
        <div class="col-md-6 mb-3">
                                  <label for="full_name"><strong>Full Name<b style="color:red">*</b></strong></label>
                             <div class="input-group">
-                              <input type="text" class="form-control" id="full_name" value="<?php echo  $fetch['full_name']?>" name="full_name"  aria-describedby="button-addon2">
+                              <input type="text" class="form-control" id="full_name" value="<?php echo $fetch['full_name']?>" name="full_name"  aria-describedby="button-addon2">
                            
                             </div>
                           </div>
@@ -178,8 +178,8 @@ if(isset($_REQUEST['edit'])) {
                               <?php
                               $queryRoles = mysqli_query($conn,"select * from `roles`") or die($conn->error);
                               while($role = mysqli_fetch_assoc($queryRoles)) {
-                                $selected = ($role['id'] == $fetch['designation']) ? 'selected' : '';
-                                echo "<option value='{$role['id']}' $selected>{$role['roles']}</option>";
+                                $selected = ($role['roles'] == $fetch['designation']) ? 'selected' : '';
+                                echo "<option value='{$role['roles']}' $selected>{$role['roles']}</option>";
                               }
                               ?>
                             </select>
@@ -193,7 +193,18 @@ if(isset($_REQUEST['edit'])) {
                                    <div class="col-md-6 mb-3">
                                  <label for="mobile_no"><strong>Mobile   No (Username)<b style="color:red">*</b></strong></label>
                             <div class="input-group">
-                              <input type="text" class="form-control" id="mobile_no" name="mobile_no"  value="<?php echo  $fetch['mobile_no']?>"   aria-describedby="button-addon2">
+                           <input type="text" 
+       class="form-control" 
+       id="mobile_no" 
+       name="mobile_no"  
+       value="<?php echo $fetch['mobile_no']; ?>" 
+       maxlength="10" 
+       minlength="10" 
+       pattern="\d{10}" 
+       oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);" 
+       aria-describedby="button-addon2" 
+       required>
+
                            
                             </div>
                           </div>
@@ -203,7 +214,7 @@ if(isset($_REQUEST['edit'])) {
                      <div class="col-md-6 mb-3">
                           <label for="Password"><strong>Password<b style="color:red">*</b></strong></label>
                            <div class="input-group">
-                              <input type="text" class="form-control" id="Password" name="Password"  value="<?php echo  $fetch['Password']?>" aria-describedby="button-addon2">
+                              <input type="password" class="form-control" id="Password" name="Password"  value="<?php echo  $fetch['Password']?>" aria-describedby="button-addon2">
                            
                             </div>
                           </div>
@@ -213,7 +224,7 @@ if(isset($_REQUEST['edit'])) {
                 
                       ?>
                     
-<button class="btn btn-primary mt-2" name="update" type="submit" style="height: 45px;">Submit</button>
+<button class="btn btn-primary mt-2" name="update" type="submit" style="height: 45px;" value="<?php echo $_REQUEST['id'] ?>">Update</button>
                       <?php } else { ?>
                         <button class="btn btn-primary mt-2" name="submit" type="submit"  style="height: 45px;">Submit form</button>
                         <?php } ?>
@@ -307,6 +318,62 @@ function updateDropdowns() {
                       </form>
                     </div> <!-- /.card-body -->
                   </div> <!-- /.card -->
+                    <div class="row">
+      <div class="col-md-12">
+                  <div class="card shadow mb-4">
+                   <!-- <div class="card-header eleven">
+                        <h1 class="card-title" style="font-size:2rem">Create MMU Team</h1>
+                    </div>-->
+                    
+                    <div class="card-body">
+                        
+                        <h1 >Create Users</h1>
+
+                        <div class="table-responsive">
+                          <table class="table table-striped table-bordered" id="dataTable-1">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th>Sr. No.</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Designation</th>
+                                <th>Mobile No</th>
+                                <th>Password</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- Existing rows will be populated here -->
+                               <?php
+                               // Fetch user data from the database
+                               $query = "SELECT * FROM users";
+                               $result = mysqli_query($conn, $query);
+                               $sr_no = 1;
+                               while ($row = mysqli_fetch_assoc($result)) {
+                                   echo "<tr>";
+                                   echo "<td>" . $sr_no++ . "</td>";
+                                   echo "<td>" . $row['full_name'] . "</td>";
+                                   echo "<td>" . $row['Email'] . "</td>";
+                                   echo "<td>" . $row['address'] . "</td>";
+                                   echo "<td>" . $row['designation'] . "</td>";
+                                   echo "<td>" . $row['mobile_no'] . "</td>";
+                                   echo "<td>" . $row['Password'] . "</td>";
+                                   echo "<td>
+                                   <a href='createUser.php?id=" . $row['id'] . "&edit=' class='btn btn-primary btn-sm' >Edit</a>
+                                   <button class='btn btn-danger btn-sm' onclick='deleteFun(\"createUserDB.php?delete=&id=" . $row['id'] . "\")'>Delete</button></td>";
+                                   echo "</tr>";
+                               }
+                               ?>
+                            </tbody>
+                          </table>
+
+                        </div>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
                 </div> <!-- /.col -->
               </div> <!-- end section -->
             </div> <!-- /.col-12 col-lg-10 col-xl-10 -->
@@ -374,6 +441,30 @@ function getServices(){
 <script src='js/dropzone.min.js?v=<?php echo $version; ?>'></script>
 <script src='js/uppy.min.js?v=<?php echo $version; ?>'></script>
 <script src='js/quill.min.js?v=<?php echo $version; ?>'></script>
+
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<!-- Responsive extension -->
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
+<!-- Optional: Bootstrap 4 styling for modern UI -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+
+
+<script>
+  $(document).ready(function () {
+    $('#dataTable-1').DataTable({
+
+ 
+    });
+  });
+</script>
+
     <script>
       $('.select2').select2(
       {
