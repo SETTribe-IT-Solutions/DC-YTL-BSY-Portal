@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>बालसंगोपन योजना पोर्टल</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        * {
+        body{
+            margin: 0;
+        }
+        /* Component-specific styles */
+        .bsy-component {
+            --primary-color: #113e5c;
+            --accent-color: #f7931e;
+            --light-color: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', 'Devanagari Sangam MN', sans-serif;
+        }
+        
+        .bsy-component * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        /* body {
-            font-family: 'Arial', 'Devanagari Sangam MN', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        } */
-
-        .header {
-            background: #113e5c;
+        
+        /* Header styles */
+        .bsy-header {
+            background: var(--primary-color);
             padding: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
         }
 
-        .header::before {
+        .bsy-header::before {
             content: '';
             position: absolute;
             top: 0;
@@ -38,7 +44,7 @@
             pointer-events: none;
         }
 
-        .header-container {
+        .bsy-header-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -48,56 +54,61 @@
             z-index: 2;
         }
 
-        .logo-left img, .logo-right img {
-            width: 100%;
-            height: 120px;
+        .bsy-logo img {
+            /* height: 120px; */
+            height: 80px;
+            width: auto;
             object-fit: contain;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
         }
 
-        .title-section {
+        .bsy-title-section {
             flex: 1;
             text-align: center;
-            padding: 0 30px;
+            /* padding: 0 30px; */
+            padding: 0 20px;
         }
 
-        .main-title {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+        .bsy-main-title {
+            /* font-size: clamp(1.8rem, 4vw, 2.8rem); */
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
             font-weight: 700;
-            color: white;
+            color: var(--light-color);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             margin-bottom: 8px;
             line-height: 1.2;
             letter-spacing: 0.5px;
         }
 
-        .sub-title {
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+        .bsy-sub-title {
+            /* font-size: clamp(1.1rem, 2.5vw, 1.6rem); */
+            font-size: clamp(1rem, 2.5vw, 1.4rem); 
             font-weight: 500;
             color: rgba(255, 255, 255, 0.95);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
             line-height: 1.3;
         }
 
-        .decorative-line {
+        .bsy-decorative-line {
             width: 100px;
             height: 3px;
-            background: white;
-            margin: 15px auto;
+            background: var(--light-color);
+            /* margin: 15px auto; */
+            margin: 10px auto;
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* NAVBAR STYLES */
-        .navbar {
-            background-color: #fff;
+        /* Navbar styles */
+        .bsy-navbar {
+            background-color: var(--light-color);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .navbar-container {
+        .bsy-navbar-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -107,90 +118,87 @@
             position: relative;
         }
 
-        .nav-brand {
+        .bsy-nav-brand {
             display: flex;
             align-items: center;
             padding: 12px 0;
         }
 
-        .nav-brand img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .nav-brand span {
+        .bsy-nav-brand span {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #113e5c;
+            color: var(--primary-color);
         }
 
-        .nav-links {
+        .bsy-nav-links {
             display: flex;
             list-style: none;
         }
 
-        .nav-links li {
+        .bsy-nav-links > li {
             position: relative;
         }
 
-        .nav-links > li > a {
-            display: block;
+        .bsy-nav-links > li > a {
+            display: flex;
+            align-items: center;
             padding: 18px 20px;
             text-decoration: none;
-            color: #113e5c;
+            color: var(--primary-color);
             font-weight: 500;
             font-size: 1.1rem;
             transition: all 0.3s ease;
             position: relative;
+            gap: 8px;
         }
 
-        .nav-links > li > a:hover {
-            color: #f7931e;
+        .bsy-nav-links > li > a:hover {
+            color: var(--accent-color);
         }
 
-        .nav-links > li > a::after {
+        .bsy-nav-links > li > a::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             width: 0;
             height: 3px;
-            background: #f7931e;
+            background: var(--accent-color);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
 
-        .nav-links > li > a:hover::after {
+        .bsy-nav-links > li > a:hover::after {
             width: 80%;
         }
 
-        .nav-links > li > a.active {
-            color: #f7931e;
+        .bsy-nav-links > li > a.active {
+            color: var(--accent-color);
             font-weight: 600;
         }
 
-        .nav-links > li > a.active::after {
+        .bsy-nav-links > li > a.active::after {
             width: 80%;
-            background: #f7931e;
+            background: var(--accent-color);
         }
 
         /* Login Dropdown Styles */
-        .dropdown {
+        .bsy-dropdown {
             position: relative;
         }
         
-        .dropdown-toggle {
+        .bsy-dropdown-toggle {
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 6px;
         }
         
-        .dropdown-menu {
+        .bsy-dropdown-menu {
             position: absolute;
             top: 100%;
             right: 0;
-            background: #fff;
+            background: var(--light-color);
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             min-width: 220px;
@@ -202,36 +210,36 @@
             z-index: 100;
         }
         
-        .dropdown:hover .dropdown-menu {
+        .bsy-dropdown:hover .bsy-dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
         
-        .dropdown-menu a {
+        .bsy-dropdown-menu a {
             display: flex;
             align-items: center;
             padding: 12px 20px;
             text-decoration: none;
-            color: #113e5c;
+            color: var(--primary-color);
             font-weight: 500;
             font-size: 1rem;
             transition: all 0.2s ease;
+            gap: 10px;
         }
         
-        .dropdown-menu a:hover {
+        .bsy-dropdown-menu a:hover {
             background: #f5f9ff;
-            color: #f7931e;
+            color: var(--accent-color);
         }
         
-        .dropdown-menu a i {
-            margin-right: 10px;
+        .bsy-dropdown-menu a i {
             width: 20px;
             text-align: center;
-            color: #f7931e;
+            color: var(--accent-color);
         }
 
-        .navbar-toggler {
+        .bsy-navbar-toggler {
             display: none;
             background: none;
             border: none;
@@ -242,102 +250,60 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 1001;
-        }
-
-        .toggler-icon {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: #113e5c;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .toggler-icon::before,
-        .toggler-icon::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 3px;
-            background: #113e5c;
-            left: 0;
-            transition: all 0.3s ease;
-        }
-
-        .toggler-icon::before {
-            top: -8px;
-        }
-
-        .toggler-icon::after {
-            top: 8px;
-        }
-
-        .navbar-toggler.active .toggler-icon {
-            background: transparent;
-        }
-
-        .navbar-toggler.active .toggler-icon::before {
-            top: 0;
-            transform: rotate(45deg);
-            background: #fff;
-        }
-
-        .navbar-toggler.active .toggler-icon::after {
-            top: 0;
-            transform: rotate(-45deg);
-            background: #fff;
+            color: var(--primary-color);
+            font-size: 1.5rem;
         }
 
         /* Mobile Styles */
         @media (max-width: 992px) {
-            .header {
+            .bsy-header {
                 padding: 15px 10px;
             }
 
-            .header-container {
+            .bsy-header-container {
                 gap: 15px;
             }
 
-            .logo-left img, .logo-right img {
+            .bsy-logo img {
                 height: 60px;
             }
 
-            .title-section {
+            .bsy-title-section {
                 padding: 0 15px;
             }
 
-            .main-title {
+            .bsy-main-title {
                 font-size: clamp(1.4rem, 5vw, 2rem);
                 margin-bottom: 5px;
             }
 
-            .sub-title {
+            .bsy-sub-title {
                 font-size: clamp(0.9rem, 3vw, 1.2rem);
             }
 
-            .decorative-line {
+            .bsy-decorative-line {
                 width: 60px;
                 height: 2px;
                 margin: 10px auto;
             }
 
             /* Navbar Mobile Styles */
-            .navbar-container {
+            .bsy-navbar-container {
                 padding: 0;
                 flex-wrap: wrap;
             }
             
-            .navbar-toggler {
+            .bsy-navbar-toggler {
                 display: block;
             }
             
-            .nav-links {
+            .bsy-nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 width: 75%;
                 height: 100vh;
-                background: #113e5c;
+                background: var(--primary-color);
                 flex-direction: column;
                 align-items: flex-start;
                 padding-top: 80px;
@@ -346,41 +312,41 @@
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
             }
             
-            .nav-links.active {
+            .bsy-nav-links.active {
                 right: 0;
             }
             
-            .nav-links li {
+            .bsy-nav-links li {
                 width: 100%;
             }
             
-            .nav-links > li > a {
-                color: #fff;
+            .bsy-nav-links > li > a {
+                color: var(--light-color);
                 padding: 15px 30px;
                 font-size: 1.2rem;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
             
-            .nav-links > li > a:hover {
+            .bsy-nav-links > li > a:hover {
                 background: rgba(255, 255, 255, 0.05);
-                color: #fff;
+                color: var(--light-color);
             }
             
-            .nav-links > li > a::after {
+            .bsy-nav-links > li > a::after {
                 display: none;
             }
             
-            .nav-links > li > a.active {
+            .bsy-nav-links > li > a.active {
                 background: rgba(255, 255, 255, 0.1);
-                color: #fff;
+                color: var(--light-color);
             }
             
             /* Mobile dropdown */
-            .dropdown {
+            .bsy-dropdown {
                 width: 100%;
             }
             
-            .dropdown-menu {
+            .bsy-dropdown-menu {
                 position: static;
                 background: transparent;
                 box-shadow: none;
@@ -394,224 +360,257 @@
                 transition: max-height 0.3s ease;
             }
             
-            .dropdown.active .dropdown-menu {
+            .bsy-dropdown.active .bsy-dropdown-menu {
                 max-height: 300px;
             }
             
-            .dropdown-menu a {
+            .bsy-dropdown-menu a {
                 color: rgba(255, 255, 255, 0.8);
                 padding-left: 45px;
                 font-size: 1rem;
             }
             
-            .dropdown-menu a:hover {
+            .bsy-dropdown-menu a:hover {
                 background: rgba(255, 255, 255, 0.05);
-                color: #fff;
+                color: var(--light-color);
             }
             
-            .dropdown-toggle::after {
+            .bsy-dropdown-toggle::after {
                 content: '▼';
                 font-size: 0.7rem;
                 transition: transform 0.3s ease;
+                margin-left: 5px;
             }
             
-            .dropdown.active .dropdown-toggle::after {
+            .bsy-dropdown.active .bsy-dropdown-toggle::after {
                 transform: rotate(180deg);
             }
         }
 
         @media (max-width: 480px) {
-            .header {
+            .bsy-header {
                 padding: 12px 8px;
             }
 
-            .header-container {
+            .bsy-header-container {
                 gap: 10px;
             }
 
-            .logo-left img, .logo-right img {
-                height: 50px;
+            .bsy-logo img {
+                /* height: 50px; */
+                height: 63px;
             }
 
-            .decorative-line {
+            .bsy-decorative-line {
                 width: 50px;
             }
         }
+        .fa-close:before, .fa-multiply:before, .fa-remove:before, .fa-times:before, .fa-xmark:before {
+    content: "\f00d";
+    color: white;
+}
 
-        /* Content section */
-        .content {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
+    @keyframes slideLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
-        .content h2 {
-            color: #113e5c;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
+@keyframes slideRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
-        .content p {
-            color: #666;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto 20px;
-            text-align: justify;
-        }
-        
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .feature-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 25px;
-            width: 280px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-card i {
-            font-size: 2.5rem;
-            color: #f7931e;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card h3 {
-            color: #113e5c;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-        
-        .feature-card p {
-            text-align: center;
-            font-size: 0.95rem;
-        }
-        
-        
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation utility classes */
+.animate-slide-left {
+  animation: slideLeft 1s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-container">
-            <div class="logo-left">
-                <!-- <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23fff'/><path d='M30 40h40v20H30z' fill='%23113e5c'/><circle cx='35' cy='45' r='2' fill='%23fff'/><circle cx='50' cy='45' r='2' fill='%23fff'/><circle cx='65' cy='45' r='2' fill='%23fff'/><rect x='32' y='52' width='36' height='2' fill='%23fff'/><rect x='32' y='56' width='36' height='2' fill='%23fff'/><text x='50' y='80' text-anchor='middle' fill='%23113e5c' font-size='10' font-weight='bold' font-family='Arial'>BSY</text></svg>" alt="सरकारी चिन्ह"> -->
-                 <img src ="../img/BSY_logo1.png" alt="बालसंगोपन योजना">
+    <!-- Component container with unique class prefix -->
+    <div class="bsy-component">
+        <!-- Header -->
+        <header class="bsy-header">
+            <div class="bsy-header-container">
+                <div class="bsy-logo">
+                    <img src="img/BSY_logo1.png" alt="बालसंगोपन योजना"  class="animate-slide-up">
+                </div>
+                
+                <div class="bsy-title-section">
+                    <h1 class="bsy-main-title animate-slide-left">बालसंगोपन योजना पोर्टल</h1>
+                    <div class="bsy-decorative-line"></div>
+                    <h2 class="bsy-sub-title animate-slide-right">जिल्हाधिकारी कार्यालय, यवतमाळ</h2>
+                </div>
+                
+                <div class="bsy-logo">
+                    <img src="img/yojana_img.png" alt="बालसंगोपन योजना" class="animate-slide-up">
+                </div>
             </div>
-            
-            <div class="title-section">
-                <h1 class="main-title">बालसंगोपन योजना पोर्टल</h1>
-                <div class="decorative-line"></div>
-                <h2 class="sub-title">जिल्हाधिकारी कार्यालय, यवतमाळ</h2>
-            </div>
-            
-            <div class="logo-right">
-                <!-- <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23fff'/><rect x='10' y='10' width='80' height='20' fill='%23ff6b35'/><rect x='10' y='40' width='80' height='20' fill='%23fff'/><rect x='10' y='70' width='80' height='20' fill='%2300a551'/><circle cx='50' cy='50' r='15' fill='%2300a551'/><path d='M50 35l3 10h10l-8 6 3 10-8-6-8 6 3-10-8-6h10z' fill='%23fff'/></svg>" alt="राष्ट्रीय चिन्ह"> -->
-                 <img src ="../img/BSY_logo2.png" alt="बालसंगोपन योजना">
-            </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- NAVIGATION BAR -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="nav-brand">
-                <span>बालसंगोपन योजना</span>
-            </div>
-            
-            <button class="navbar-toggler" id="navbarToggler">
-                <span class="toggler-icon"></span>
-            </button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#" class="active">होम</a></li>
-                <li><a href="#">योजना बद्दल</a></li>
-                <li><a href="#">अर्ज सबमिट करा</a></li>
-                <!-- <li><a href="#">अर्ज तपासा</a></li> -->
-                <li><a href="#">महत्वाची लिंक</a></li>
-                <!-- <li><a href="#">सूचना</a></li> -->
-                <li><a href="#">संपर्क</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">लॉगिन <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
+        <!-- Navigation Bar -->
+        <nav class="bsy-navbar">
+            <div class="bsy-navbar-container">
+                <div class="bsy-nav-brand">
+                    <span>बालसंगोपन योजना</span>
+                </div>
+                
+                <button class="bsy-navbar-toggler" id="bsy-navbarToggler">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="bsy-nav-links" id="bsy-navLinks">
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> होम</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> योजना बद्दल</a></li>
+                    <li><a href="#"><i class="fas fa-file-export"></i> अर्ज सबमिट करा</a></li>
+                    <li><a href="#"><i class="fas fa-link"></i> महत्वाची लिंक</a></li>
+                    <li><a href="#"><i class="fas fa-phone-alt"></i> संपर्क</a></li>
+                    <li class="bsy-dropdown">
+                        <a href="#" class="bsy-dropdown-toggle"><i class="fas fa-user"></i> लॉगिन <i class="fas fa-chevron-down"></i></a>
+                        <ul class="bsy-dropdown-menu">
                         <a href="#"><i class="fas fa-user-shield"></i> प्रशासक लॉगिन</a>
                         <a href="#"><i class="fas fa-user-edit"></i> अर्जदार लॉगिन</a>
                         <a href="#"><i class="fas fa-user-tie"></i> कर्मचारी लॉगिन</a>
                         <a href="#"><i class="fas fa-user-check"></i> पालक लॉगिन</a>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="content">
-        <h2>बालसंगोपन योजना पोर्टलमध्ये आपले स्वागत आहे</h2>
-        <p>ही संकेतस्थळ यवतमाळ जिल्ह्यातील बालसंगोपन योजनेसंदर्भातील सर्व माहिती, सेवा आणि अर्ज प्रक्रिया उपलब्ध करून देते. बालसंगोपन योजना ही राज्य शासनाची महत्त्वाची कल्याणकारी योजना आहे ज्याद्वारे आर्थिकदृष्ट्या दुर्बल घरातील मुलांना शैक्षणिक संधी उपलब्ध करून दिल्या जातात.</p>
-        <p>योजनेअंतर्गत, पात्र मुलांना शालेय शिक्षणासाठी आर्थिक सहाय्य, पाठ्यपुस्तके, वर्दी, शैक्षणिक साहित्य इत्यादी सुविधा पुरवल्या जातात. या पोर्टलद्वारे पालक, शिक्षक आणि प्रशासकांना योजनेचा प्रभावीपणे वापर करण्यास मदत होईल.</p>
-        
-        <div class="features">
-            <div class="feature-card">
-                <i class="fas fa-file-alt"></i>
-                <h3>ऑनलाईन अर्ज</h3>
-                <p>घरबसल्या बालसंगोपन योजनेसाठी अर्ज सबमिट करा. प्रक्रिया सोपी आणि वेगवान.</p>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-search"></i>
-                <h3>अर्जाची स्थिती</h3>
-                <p>आपल्या अर्जाची सद्यस्थिती तपासा. मंजुरी आणि निधी वितरणाची माहिती मिळवा.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-book"></i>
-                <h3>मार्गदर्शन</h3>
-                <p>योजनेसंबंधी संपूर्ण माहिती, पात्रता निकष आणि आवश्यक कागदपत्रांची माहिती.</p>
-            </div>
-        </div>
+        </nav>
     </div>
     
-
     <script>
-        // Mobile navbar toggle functionality
-        const navbarToggler = document.getElementById('navbarToggler');
-        const navLinks = document.getElementById('navLinks');
-        
-        navbarToggler.addEventListener('click', () => {
-            navbarToggler.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close navbar when clicking on a link
-        document.querySelectorAll('.nav-links > li > a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Handle dropdown toggle on mobile
-                if (window.innerWidth <= 992 && link.parentElement.classList.contains('dropdown')) {
-                    e.preventDefault();
-                    link.parentElement.classList.toggle('active');
-                } else {
+        // Scoped JavaScript for the component
+        (function() {
+            // Mobile navbar toggle functionality
+            const navbarToggler = document.getElementById('bsy-navbarToggler');
+            const navLinks = document.getElementById('bsy-navLinks');
+            
+            if (navbarToggler) {
+                navbarToggler.addEventListener('click', () => {
+                    navbarToggler.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    
+                    // Toggle icon
+                    const icon = navbarToggler.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+            
+            // Close navbar when clicking on a link
+            if (navLinks) {
+                document.querySelectorAll('.bsy-nav-links > li > a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        // Handle dropdown toggle on mobile
+                        if (window.innerWidth <= 992 && link.parentElement.classList.contains('bsy-dropdown')) {
+                            e.preventDefault();
+                            link.parentElement.classList.toggle('active');
+                        } else {
+                            if (navLinks.classList.contains('active')) {
+                                navLinks.classList.remove('active');
+                                navbarToggler.classList.remove('active');
+                                const icon = navbarToggler.querySelector('i');
+                                icon.classList.remove('fa-times');
+                                icon.classList.add('fa-bars');
+                                document.body.style.overflow = '';
+                            }
+                        }
+                    });
+                });
+            }
+            
+            // Close navbar when clicking outside
+            document.addEventListener('click', (e) => {
+                const isNavLink = e.target.closest('.bsy-nav-links');
+                const isToggler = e.target.closest('#bsy-navbarToggler');
+                
+                if (!isNavLink && !isToggler && navLinks && navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
-                    navbarToggler.classList.remove('active');
+                    if (navbarToggler) {
+                        navbarToggler.classList.remove('active');
+                        const icon = navbarToggler.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                    document.body.style.overflow = '';
                 }
             });
-        });
-        
-        // Close navbar when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !navbarToggler.contains(e.target)) {
-                navLinks.classList.remove('active');
-                navbarToggler.classList.remove('active');
-            }
-        });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                const dropdowns = document.querySelectorAll('.bsy-dropdown');
+                dropdowns.forEach(dropdown => {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Close menu when window is resized above 992px
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    if (navLinks && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                    if (navbarToggler && navbarToggler.classList.contains('active')) {
+                        navbarToggler.classList.remove('active');
+                        const icon = navbarToggler.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                    document.body.style.overflow = '';
+                    
+                    // Close all dropdowns
+                    document.querySelectorAll('.bsy-dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        })();
     </script>
-<?php include 'footer_1.php'; ?>
 </body>
 </html>

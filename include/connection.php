@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect('localhost','u196817721_mmu_Thane','mmu_Thane@12345','u196817721_mmu_Thane');
+$conn = mysqli_connect("217.21.88.4","u952673419_bsy_dc_ytl","xeD?jgqeG:4A","u952673419_bsy_dc_ytl");
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
