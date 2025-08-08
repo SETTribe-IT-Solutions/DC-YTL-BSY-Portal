@@ -55,7 +55,8 @@
         }
 
         .bsy-logo img {
-            height: 120px;
+            /* height: 120px; */
+            height: 80px;
             width: auto;
             object-fit: contain;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
@@ -64,11 +65,13 @@
         .bsy-title-section {
             flex: 1;
             text-align: center;
-            padding: 0 30px;
+            /* padding: 0 30px; */
+            padding: 0 20px;
         }
 
         .bsy-main-title {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            /* font-size: clamp(1.8rem, 4vw, 2.8rem); */
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
             font-weight: 700;
             color: var(--light-color);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -78,7 +81,8 @@
         }
 
         .bsy-sub-title {
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            /* font-size: clamp(1.1rem, 2.5vw, 1.6rem); */
+            font-size: clamp(1rem, 2.5vw, 1.4rem); 
             font-weight: 500;
             color: rgba(255, 255, 255, 0.95);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -89,7 +93,8 @@
             width: 100px;
             height: 3px;
             background: var(--light-color);
-            margin: 15px auto;
+            /* margin: 15px auto; */
+            margin: 10px auto;
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
@@ -392,7 +397,8 @@
             }
 
             .bsy-logo img {
-                height: 50px;
+                /* height: 50px; */
+                height: 63px;
             }
 
             .bsy-decorative-line {
@@ -403,6 +409,53 @@
     content: "\f00d";
     color: white;
 }
+
+    @keyframes slideLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation utility classes */
+.animate-slide-left {
+  animation: slideLeft 1s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+
     </style>
 </head>
 <body>
@@ -412,17 +465,17 @@
         <header class="bsy-header">
             <div class="bsy-header-container">
                 <div class="bsy-logo">
-                    <img src="img/BSY_logo1.png" alt="बालसंगोपन योजना">
+                    <img src="img/BSY_logo1.png" alt="बालसंगोपन योजना"  class="animate-slide-up">
                 </div>
                 
                 <div class="bsy-title-section">
-                    <h1 class="bsy-main-title">बालसंगोपन योजना पोर्टल</h1>
+                    <h1 class="bsy-main-title animate-slide-left">बालसंगोपन योजना पोर्टल</h1>
                     <div class="bsy-decorative-line"></div>
-                    <h2 class="bsy-sub-title">जिल्हाधिकारी कार्यालय, यवतमाळ</h2>
+                    <h2 class="bsy-sub-title animate-slide-right">जिल्हाधिकारी कार्यालय, यवतमाळ</h2>
                 </div>
                 
                 <div class="bsy-logo">
-                    <img src="img/yojana_img.png" alt="बालसंगोपन योजना">
+                    <img src="img/yojana_img.png" alt="बालसंगोपन योजना" class="animate-slide-up">
                 </div>
             </div>
         </header>
