@@ -244,8 +244,11 @@
                 <div class="invalid-feedback"> Please enter occupation</div>
             </div>
         </div>
-
-        <div class="checkbox-group mb-2">
+    </div>
+</div>
+    
+<div class="checkbox-group mb-2">
+  <hr style="border-top: 2px solid #000; margin: 15px 0;">
             <label>
                 <input type="checkbox" name="option1[]">
                 या बालकांच्या नात्याने आई/वडील/नातेवाईक/संगोपनकर्ता असून सदर बालकाचा सांभाळ करण्याकरिता तयार असल्याचे हमीपत्र सादर करण्यात येत आहे.
@@ -258,8 +261,6 @@
                 या बालकांचा नात्याने आई /वडील/नातेवाईक/संगोपनकर्ता असून सदर बालक इतर कोणत्याही योजनेचा लाभ घेत नसल्याचे हमीपत्र सादर करण्यात येत आहे.
             </label>
         </div>
-    </div>
-</div>
 
                     </div> <!-- /.form-row -->
                     <button class="btn btn-primary" name="submit" type="submit">Submit form</button>
@@ -329,18 +330,7 @@ document.getElementById('add-member').addEventListener('click', function() {
                 <div class="invalid-feedback"> Please enter a occupation</div>
             </div>
         </div>
-        <div class="checkbox-group mb-2">
-            <label>
-                <input type="checkbox" name="option1[]">
-                या बालकांच्या नात्याने आई/वडील/नातेवाईक/संगोपनकर्ता असून सदर बालकाचा सांभाळ करण्याकरिता तयार असल्याचे हमीपत्र सादर करण्यात येत आहे.
-            </label>
-        </div>
-        <div class="checkbox-group">
-            <label>
-                <input type="checkbox" name="option2[]">
-                या बालकांचा नात्याने आई /वडील/नातेवाईक/संगोपनकर्ता असून सदर बालक इतर कोणत्याही योजनेचा लाभ घेत नसल्याचे हमीपत्र सादर करण्यात येत आहे.
-            </label>
-        </div>
+        
     `;
 
     container.appendChild(memberDiv);
