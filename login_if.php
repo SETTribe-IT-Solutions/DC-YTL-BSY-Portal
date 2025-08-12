@@ -54,7 +54,7 @@
     .input-group-text {
       background: #fff;
       border-left: 0;
-      cursor: pointer;
+      cursor: pointer;   
     }
 
     .btn-primary {
