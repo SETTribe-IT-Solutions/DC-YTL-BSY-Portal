@@ -27,7 +27,7 @@
     }
 
     .login-image {
-      background: url('img/logo-ngo.png') no-repeat center center;
+      background: url('img/admin.jpg') no-repeat center center;
       background-size:contain;
     }
 
@@ -96,17 +96,17 @@
 
   <!-- Right Side Form -->
   <div class="login-form">
-    <h4> DCPO कर्मचारी / NGO लॉगीन </h4>
-    <form method="POST" action="login_ngo_DB.php">
+    <h4> एडमिन लोगिन </h4>
+    <form method="POST" action="login_db.php">
       <div class="mb-3">
         <label for="username" class="form-label" style="font-weight:bold;color: #113e5c;">यूजरनेम / मोबाईल नंबर</label>
-        <input type="text" id="username" maxlength="10" name="mobile_no" class="form-control" required>
+        <input type="text" id="username" name="username" class="form-control" required>
       </div>
 
       <div class="mb-3">
         <label for="password" class="form-label"style="font-weight:bold;color: #113e5c;">पासवर्ड</label>
         <div class="input-group">
-          <input type="password" id="password" name="Password" class="form-control" required>
+          <input type="password" id="password" name="password" class="form-control" required>
           <span class="input-group-text" onclick="togglePassword()">
             <i class="fa fa-eye" id="toggleIcon"></i>
           </span>

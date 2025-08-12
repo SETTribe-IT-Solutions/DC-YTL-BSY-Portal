@@ -27,7 +27,7 @@
     }
 
     .login-image {
-      background: url('img/logo-ngo.png') no-repeat center center;
+      background: url('img/jm.png') no-repeat center center;
       background-size:contain;
     }
 
@@ -37,6 +37,7 @@
       flex-direction: column;
       justify-content: center;
       background: #ffffff;
+
     }
 
     .login-form h4{
@@ -96,11 +97,11 @@
 
   <!-- Right Side Form -->
   <div class="login-form">
-    <h4> DCPO कर्मचारी / NGO लॉगीन </h4>
+    <h4>जिल्हा महला व बाल विकास अधिकारी लॉगन</h4>
     <form method="POST" action="login_ngo_DB.php">
       <div class="mb-3">
         <label for="username" class="form-label" style="font-weight:bold;color: #113e5c;">यूजरनेम / मोबाईल नंबर</label>
-        <input type="text" id="username" maxlength="10" name="mobile_no" class="form-control" required>
+        <input type="text" id="username" name="mobile_no" class="form-control" required>
       </div>
 
       <div class="mb-3">
@@ -123,4 +124,4 @@
 <?php include('include/footer_1.php'); ?>
 
 </body>
-</html>
+</html> 

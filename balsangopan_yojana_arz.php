@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/simplebar.css">
     <!-- Fonts CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Icons CSS -->
     <link rel="stylesheet" href="css/feather.css">
     <link rel="stylesheet" href="css/select2.css">
@@ -41,13 +42,39 @@
           z-index: 1; /* Lower than sidebar */
         }
       }
+
+      /* add more member form style */
+      .member-card {
+    /* border: 2px solid #0d6efd; */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+.remove-member {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: red;
+    cursor: pointer;
+}
+.member-title {
+    background: #194991ff;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
     </style>
   </head>
   <body class="vertical light d-flex flex-column min-vh-100">
     <!-- Page Wrapper -->
     <div class="wrapper flex-grow-1">
-         <?php include('include/header.php'); ?>
-    <?php include('include/sidebar.php'); ?>
+         <?php include('include/header_1.php'); ?>
+        <?php include('include/sidebar.php'); ?>
       <!-- Main content goes here -->
       <main role="main" class="main-content">
         <div class="container-fluid">
@@ -165,8 +192,80 @@
                         <input type="file" class="form-control" id="vechileNo" name="username" required>
                         <div class="invalid-feedback"> Please enter a Vechile No </div>
                       </div>
+
+                      <!-- second form -->
+                       <div class="card-header">
+                  <center><strong class="card-title" style="font-size:2rem;">कुटुंबामध्ये एकत्र राहणाऱ्या आणि अवलंबून असणाऱ्या सदस्यांची माहिती</strong></center>
+                </div>
+
+                <div id="members-container">
+    <!-- First Member -->
+    <div class="member-card">
+        <div class="member-title">सदस्य क्र. 1</div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label><strong>नाव <b style="color:red;">*</b></strong></label>
+                <input type="text" class="form-control" name="name[]" required>
+                <div class="invalid-feedback"> Please enter a Name</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label><strong>वय <b style="color:red;">*</b></strong></label>
+                <input type="number" class="form-control" name="age[]" required>
+                <div class="invalid-feedback"> Please enter age</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label><strong>नाते <b style="color:red;">*</b></strong></label>
+                <select class="form-control" name="relation[]" required>
+                    <option value="" disabled selected>नाते निवडा</option>
+                    <option>आई</option>
+                    <option>वडील</option>
+                    <option>भाऊ</option>
+                    <option>बहीण</option>
+                    <option>आजोबा</option>
+                    <option>आजी</option>
+                    <option>इतर</option>
+                </select>
+                <div class="invalid-feedback"> Please enter a relation</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label><strong>व्यवसाय <b style="color:red;">*</b></strong></label>
+                 <select class="form-control" name="profession[]" required>
+                    <option value="" disabled selected>व्यवसाय निवडा</option>
+                    <option>शेतकरी</option>
+                    <option>शिक्षक</option>
+                    <option>डॉक्टर</option>
+                    <option>व्यवसायिक</option>
+                    <option>नोकरदार</option>
+                    <option>गृहिणी</option>
+                    <option>विद्यार्थी</option>
+                    <option>इतर</option>
+                </select>
+                <div class="invalid-feedback"> Please enter occupation</div>
+            </div>
+        </div>
+
+        <div class="checkbox-group mb-2">
+            <label>
+                <input type="checkbox" name="option1[]">
+                या बालकांच्या नात्याने आई/वडील/नातेवाईक/संगोपनकर्ता असून सदर बालकाचा सांभाळ करण्याकरिता तयार असल्याचे हमीपत्र सादर करण्यात येत आहे.
+            </label>
+        </div>
+
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" name="option2[]">
+                या बालकांचा नात्याने आई /वडील/नातेवाईक/संगोपनकर्ता असून सदर बालक इतर कोणत्याही योजनेचा लाभ घेत नसल्याचे हमीपत्र सादर करण्यात येत आहे.
+            </label>
+        </div>
+    </div>
+</div>
+
                     </div> <!-- /.form-row -->
                     <button class="btn btn-primary" name="submit" type="submit">Submit form</button>
+                    <button type="button" class="btn btn-success" id="add-member">
+        <i class="bi bi-plus-circle"></i> अजून सदस्य जोडा
+    </button>
                   </form>
                 </div> <!-- /.card-body -->
               </div> <!-- /.card -->
@@ -176,7 +275,94 @@
       </main>
     </div>
 
-     <?php include('include/footer.php'); ?>
+<!-- script for add more members -->
+    <script>
+let memberCount = 1;
+
+document.getElementById('add-member').addEventListener('click', function() {
+    memberCount++;
+    const container = document.getElementById('members-container');
+
+    const memberDiv = document.createElement('div');
+    memberDiv.classList.add('member-card');
+    memberDiv.innerHTML = `
+        <span class="remove-member">&times;</span>
+        <div class="member-title">सदस्य क्र. ${memberCount}</div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label><strong>नाव <b style="color:red;">*</b></strong></label>
+                <input type="text" class="form-control" name="name[]" required>
+                <div class="invalid-feedback"> Please enter a Name</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label><strong>वय <b style="color:red;">*</b></strong></label>
+                <input type="number" class="form-control" name="age[]" required>
+                <div class="invalid-feedback"> Please enter age</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label><strong>नाते <b style="color:red;">*</b></strong></label>
+                <select class="form-control" name="relation[]" required>
+                    <option value="">नाते निवडा</option>
+                    <option>आई</option>
+                    <option>वडील</option>
+                    <option>भाऊ</option>
+                    <option>बहीण</option>
+                    <option>आजोबा</option>
+                    <option>आजी</option>
+                    <option>इतर</option>
+                </select>
+                <div class="invalid-feedback"> Please enter a relation</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label><strong>व्यवसाय <b style="color:red;">*</b></strong></label>
+                <select class="form-control" name="profession[]" required>
+                    <option value="">व्यवसाय निवडा</option>
+                    <option>शेतकरी</option>
+                    <option>शिक्षक</option>
+                    <option>डॉक्टर</option>
+                    <option>व्यवसायिक</option>
+                    <option>नोकरदार</option>
+                    <option>गृहिणी</option>
+                    <option>विद्यार्थी</option>
+                    <option>इतर</option>
+                </select>
+                <div class="invalid-feedback"> Please enter a occupation</div>
+            </div>
+        </div>
+        <div class="checkbox-group mb-2">
+            <label>
+                <input type="checkbox" name="option1[]">
+                या बालकांच्या नात्याने आई/वडील/नातेवाईक/संगोपनकर्ता असून सदर बालकाचा सांभाळ करण्याकरिता तयार असल्याचे हमीपत्र सादर करण्यात येत आहे.
+            </label>
+        </div>
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" name="option2[]">
+                या बालकांचा नात्याने आई /वडील/नातेवाईक/संगोपनकर्ता असून सदर बालक इतर कोणत्याही योजनेचा लाभ घेत नसल्याचे हमीपत्र सादर करण्यात येत आहे.
+            </label>
+        </div>
+    `;
+
+    container.appendChild(memberDiv);
+
+    // Remove member functionality
+    memberDiv.querySelector('.remove-member').addEventListener('click', function() {
+        memberDiv.remove();
+        updateMemberNumbers();
+    });
+});
+
+// Update numbering after removal
+function updateMemberNumbers() {
+    let count = 1;
+    document.querySelectorAll('.member-title').forEach(el => {
+        el.textContent = `सदस्य क्र. ${count++}`;
+    });
+}
+</script>
+
+
+     <?php include('include/footer_1.php'); ?>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/moment.min.js"></script>
