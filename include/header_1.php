@@ -55,8 +55,8 @@
         }
 
         .bsy-logo img {
-            /* height: 120px; */
-            height: 80px;
+            height: 100px;
+            /* height: 80px; */
             width: auto;
             object-fit: contain;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
@@ -465,7 +465,7 @@
         <header class="bsy-header">
             <div class="bsy-header-container">
                 <div class="bsy-logo">
-                    <img src="img/BSY_logo1.png" alt="बालसंगोपन योजना"  class="animate-slide-up">
+                    <img src="img/Maharashtra-state.png" alt="बालसंगोपन योजना"  class="animate-slide-up">
                 </div>
                 
                 <div class="bsy-title-section">
@@ -475,7 +475,7 @@
                 </div>
                 
                 <div class="bsy-logo">
-                    <img src="img/yojana_img.png" alt="बालसंगोपन योजना" class="animate-slide-up">
+                    <img src="img/header_logo.png" alt="बालसंगोपन योजना" class="animate-slide-up">
                 </div>
             </div>
         </header>
