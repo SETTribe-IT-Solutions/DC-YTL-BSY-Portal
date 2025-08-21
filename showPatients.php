@@ -124,13 +124,13 @@ margin-left:-30%;
 
                     <div class="card-body">
                       <a href="javascript:history.back()" class="btn btn-outline-primary mb-3">
-  <i class="fas fa-arrow-left"></i>Back
-</a>
-                    <h1>Total Patients</h1>
-                        <div class="table-responsive">
- <table id="dataTable-1" class="table table-bordered responsive" style="width:100%;">
-    <thead class="text-white">
- <tr>
+                      <i class="fas fa-arrow-left"></i>Back
+                    </a>
+                                        <h1>Total Patients</h1>
+                                            <div class="table-responsive">
+                    <table id="dataTable-1" class="table table-bordered responsive" style="width:100%;">
+                        <thead class="text-white">
+                    <tr>
 
         <th>Sr. No</th>
      
